@@ -1,0 +1,27 @@
+
+<!--pages/booking/query/query.wxml-->
+
+<!-- 显示loading的模板 -->
+<import src="../../template/loading.wxml" />
+<template is="loading" data="{{showLoading}}" />
+<view class="view-default">
+  <view class="item-divider">
+    <text>请输入查询条件</text>
+  </view>
+  <view class="ui-list">
+    <view class="ui-item">
+      <text class="input-label">所在城市</text>
+      <picker class="item-picker" bindchange="bindPickerChange" value="{{city_index}}" range="{{cityList}}">
+        <view>{{cityList[city_index]}}</view>
+      </picker>
+      <view class="arrow_down"></view>
+    </view>
+    <view class="ui-item">
+      <text class="input-label">关键字</text>
+      <input class="item-input" type="text" bindinput="bindInputKeyWord" placeholder="网点关键字" value="{{keyWord}}" />
+    </view>
+  </view>
+  <view class="ui-button-content">
+    <button class="button" bindtap="bindBtnTap">手动查询</button>
+  </view>
+</view>

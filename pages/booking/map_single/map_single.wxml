@@ -1,0 +1,10 @@
+
+<!--pages/booking/map_single/map_single.wxml-->
+
+<!-- 显示loading的模板 -->
+<import src="../../template/loading.wxml" />
+<template is="loading" data="{{showLoading}}" />
+
+<!-- 初始显示的地图范围 -->
+<map id="booking_map_single" longitude="{{cur_location[0]}}" latitude="{{cur_location[1]}}" scale="15" markers="{{markers}}" bindmarkertap="markertap" bindregionchange="regionchange" show-location style="width: 100%; height: {{screen_height}}px;position:absolute;top:{{screen_head}}px;">
+</map>

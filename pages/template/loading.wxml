@@ -1,0 +1,6 @@
+<!-- 在发送HTTP请求过程中用于显示loading界面的模板 -->
+<template name="loading">
+  <view>
+    <loading wx:if="{{showLoading}}">数据加载中</loading>
+  </view>
+</template>

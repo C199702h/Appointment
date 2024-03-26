@@ -1,0 +1,21 @@
+
+<!--pages/map/map.wxml-->
+
+<!-- 显示loading的模板 -->
+<import src="../../template/loading.wxml" />
+<template is="loading" data="{{showLoading}}" />
+<view class="search-all">
+  <view class="search-left">
+    <view class="search-left-input" disabled="true" bindtap="tap_query">可搜索网点哦</view>
+  </view>
+  <view class="search-middle">
+    <view class="search-middle-view"></view>
+  </view>
+  <view class="search-right">
+    <icon class="search-right-icon" type="search" size="20" color="#FCC800" bindtap="tap_query" />
+  </view>
+</view>
+
+<!-- 初始显示的地图范围 -->
+<map id="booking_map" longitude="{{cur_location[0]}}" latitude="{{cur_location[1]}}" scale="12" markers="{{markers}}" bindmarkertap="markertap" bindregionchange="regionchange" show-location style="width: 100%; height: {{screen_height}}px;position:absolute;top:{{screen_head}}px;">
+</map>

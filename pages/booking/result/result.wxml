@@ -1,0 +1,32 @@
+
+<!--pages/booking/result/result.wxml-->
+
+<!-- 显示loading的模板 -->
+<import src="../../template/loading.wxml" />
+<template is="loading" data="{{showLoading}}" />
+<view class="view-default">
+  <view class="ui-message">
+    <icon type="success" size="80" color="#80B927" />
+    <text class="message-title">交易成功！</text>
+    <view style="padding: 0 0 0 0">
+      <text hidden="{{!bookingToday}}">您前面还有</text>
+      <text hidden="{{!bookingToday}}" style="color:red">{{waitNum}}</text>
+      <text hidden="{{!bookingToday}}">人等候，请及时前往网点打印号码单！</text>
+    </view>
+    <text hidden="{{bookingToday}}">预约取号成功，请在预约时段内前往网点激活取号，逾期作废！</text>
+  </view>
+  <view class="ui-button-content">
+    <button class="button" bindtap="bindTap_back">返回首页</button>
+  </view>
+  <view class="ui-list">
+    <view class="item-divider">
+      温馨提示
+    </view>
+    <view class="item-divider">
+      1、取当日号等同取现场号，请及时前往网点等候办理。
+    </view>
+    <view class="item-divider">
+      2、取非当日号，可优先办理，请在约定的时段到网点激活号码。
+    </view>
+  </view>
+</view>

@@ -1,0 +1,22 @@
+
+<!--pages/booking/time/time.wxml-->
+
+<!-- 显示loading的模板 -->
+<import src="../../template/loading.wxml" />
+<template is="loading" data="{{showLoading}}" />
+<view class="view-default">
+  <view class="ui-list">
+    <view class="ui-item display-block">
+      <text class="item-label">业务办理时间</text>
+      <text class="item-label" style="float: right;">可预约人数</text>
+    </view>
+  </view>
+  <view class="ui-list">
+    <view class="ui-item display-block" wx:for="{{ time_list }}" wx:for-item="time_item" wx:key="OrderTime">
+      <view bindtap="bindtap_time" data-timeinfo="{{time_item}}">
+        <text class="item-label">{{time_item.OrderTime}}</text>
+        <text class="item-note" style="float: right;">{{time_item.AvaiOrderNum}}人</text>
+      </view>
+    </view>
+  </view>
+</view>

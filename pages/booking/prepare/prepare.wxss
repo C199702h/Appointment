@@ -1,0 +1,4 @@
+/* pages/booking/prepare/prepare.wxss */
+.wordbreak {
+  white-space:pre-line;
+}

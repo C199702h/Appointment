@@ -1,0 +1,35 @@
+
+<!--pages/booking/list/list.wxml-->
+
+<!-- 显示loading的模板 -->
+<import src="../../template/loading.wxml" />
+<template is="loading" data="{{showLoading}}" />
+<view class="view-default">
+  <view class="ui-list" wx:for="{{ dept_list_show }}" wx:for-item="dept_item" wx:key="DeptId">
+    <view class="ui-item">
+      <text class="item-label">网点名称</text>
+      <text class="item-note" disabled="true">{{dept_item.DeptName}}</text>
+    </view>
+    <view class="ui-item">
+      <text class="item-label">网点地址</text>
+      <text class="item-note" disabled="true">{{dept_item.Addr}}</text>
+    </view>
+    <view class="ui-item">
+      <text class="item-label">营业时间</text>
+      <text class="item-note" disabled="true">{{dept_item.Time}}</text>
+    </view>
+    <view class="ui-item">
+      <text class="item-label">联系电话</text>
+      <text class="item-note" disabled="true">{{dept_item.Phone}}</text>
+    </view>
+    <view class="ui-button-content">
+
+      <!-- "data-"标签用于设置自定义元素，在当前控件对应的事件处理方法中，可以获取到自定义的元素 -->
+      <p class="button-link" bindtap="viewMap" data-itemdata='{{dept_item}}'>查看地图</p>
+      <span class="divide">|</span> 
+      <p class="button-link" bindtap="callPhone" data-itemdata='{{dept_item}}'>拨打电话</p>
+      <span class="divide">|</span> 
+      <p class="button-link" bindtap="doBooking" data-itemdata='{{dept_item}}'>马上预约取号</p>
+    </view>
+  </view>
+</view>

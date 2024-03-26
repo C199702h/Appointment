@@ -1,0 +1,65 @@
+
+<!--pages/booking/prepare/prepare.wxml-->
+
+<!-- 显示loading的模板 -->
+<import src="../../template/loading.wxml" />
+<template is="loading" data="{{showLoading}}" />
+<view class="view-default">
+  <view class="ui-list">
+    <view class="ui-item">
+      <text class="input-label">取号网点</text>
+      <text class="item-content">{{deptInfo.DeptName}}</text>
+    </view>
+    <view class="ui-item">
+      <text class="input-label">网点地址</text>
+      <text class="item-content wordbreak">{{deptInfo.Addr}}</text>
+    </view>
+    <view class="ui-item">
+      <text class="input-label">手机号码</text>
+      <input class="item-input" type="text" maxlength="11" bindinput="bindInputCustPhone" bindblur="bindblur_CustPhone" placeholder="请输入手机号码" value="{{custPhone}}" />
+    </view>
+    <view class="ui-item {{checkShow}} ">
+      <text class="input-label">图形附加码: </text>
+      <input class="item-input" style="width:80px;" type="text" placeholder="附加码" value="{{_vTokenName}}" maxlength="4" bindinput="inputVToken" bindblur="bindblur_VToken" />
+      <image style="width:68px;height:35px;margin:auto auto;" bindtap="refreshImgToken" src="{{ImgSrc}}"></image>
+      <img src="{{ImgSrc}}" />
+    </view>
+    <view class="ui-item">
+      <text class="input-label">办理业务</text>
+      <view class='input-label'>
+        <radio-group bindchange="bindchangeCustType">
+          <label>
+            <radio value="P" checked="true" />个人业务</label>
+          <label>
+            <radio value="E" />企业业务</label>
+        </radio-group>
+      </view>
+    </view>
+    <view class="ui-item">
+      <text class="input-label">预约日期</text>
+      <picker class="item-picker" bindchange="bindPickerChange_date" value="{{date_index}}" range="{{deptDateList}}">
+        <view class="text-grey">
+          {{deptDateList[date_index]}}
+        </view>
+      </picker>
+      <view class="arrow_down"></view>
+    </view>
+    <view class="ui-item">
+      <text class="input-label">业务类型</text>
+      <picker class="item-picker" bindtap="bindtap_type" bindchange="bindPickerChange_type" disabled="{{busiType_disable}}" value="{{busiType_index}}" range="{{busiTypeList_show}}" range-key="ServiceName">
+        <view class="text-grey">
+          {{busiTypeList_show[busiType_index].ServiceName ? busiTypeList_show[busiType_index].ServiceName : "请选择业务类型"}}
+        </view>
+      </picker>
+      <view class="arrow_down"></view>
+    </view>
+    <view class="ui-item" hidden="{{bookingToday}}">
+      <text class="input-label">预约时间</text>
+      <text class="item-content text-grey" bindtap="bindtap_time">{{currentTime == "" ? "选择预约时间" : currentTime}}</text>
+      <view class="arrow_right "></view>
+    </view>
+  </view>
+  <view class="ui-button-content">
+    <button class="button" bindtap="bindTap_commit">确认</button>
+  </view>
+</view>
